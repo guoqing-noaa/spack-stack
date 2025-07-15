@@ -1,7 +1,7 @@
 packages:
   all:
     # To support hecflow01
-    target: [haswell]
+    # target: [haswell]
   autoconf:
     externals:
     - spec: autoconf@2.69
