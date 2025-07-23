@@ -29,3 +29,20 @@ compilers:
     - gnu/9.2.0b
     environment: {}
     extra_rpaths: []
+- compiler:
+    spec: oneapi@2024.2.1
+    paths:
+      cc: /apps/oneapi/compiler/2024.2/bin/icx
+      cxx: /apps/oneapi/compiler/2024.2/bin/icpx
+      f77: /apps/oneapi/compiler/2024.2/bin/ifort
+      fc: /apps/oneapi/compiler/2024.2/bin/ifort
+    flags: {}
+    operating_system: rocky8
+    modules:
+    - intel/2024.2.1
+    environment:
+      prepend_path:
+        PATH: '/apps/gnu/gcc-9.2.0b/bin'
+        LD_LIBRARY_PATH: '/apps/gnu/gcc-9.2.0b/lib64'
+        CPATH: '/apps/gnu/gcc-9.2.0b/include'
+    extra_rpaths: []
