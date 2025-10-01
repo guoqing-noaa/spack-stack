@@ -13,6 +13,7 @@ spack:
   - compilers:
     - '%oneapi'
   - packages:
+    - ewok-env +ecflow ~cylc
     - jedi-fv3-env
     - jedi-mpas-env
     - crtm@2.4.0.1
