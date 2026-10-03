@@ -5,6 +5,14 @@ SPACK_STACK_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && p
 export SPACK_STACK_DIR
 echo "Setting environment variable SPACK_STACK_DIR to ${SPACK_STACK_DIR}"
 
+# Prepend Cray PE modulepaths if on a Cray system and not already present
+if [ -d "/opt/cray/modulefiles" ]; then
+  case ":${MODULEPATH}:" in
+    *:"/opt/cray/modulefiles":*) ;;
+    *) export MODULEPATH="/opt/cray/modulefiles:/opt/cray/pe/lmod/modulefiles/craype-targets/default:/opt/cray/pe/lmod/modulefiles/core:${MODULEPATH}" ;;
+  esac
+fi
+
 source ${SPACK_STACK_DIR:?}/spack/share/spack/setup-env.sh
 echo "Sourcing spack environment ${SPACK_STACK_DIR}/spack/share/spack/setup-env.sh"
 # Avoid using ~/.spack directory for caching, bootstrap, etc.

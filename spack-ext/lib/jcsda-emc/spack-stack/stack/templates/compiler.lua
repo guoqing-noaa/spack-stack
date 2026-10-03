@@ -16,6 +16,11 @@ conflict("stack-intel")
 conflict("stack-oneapi")
 
 -- prerequisite modules
+if isDir("/opt/cray/modulefiles") then
+    prepend_path("MODULEPATH", "/opt/cray/modulefiles")
+    prepend_path("MODULEPATH", "/opt/cray/pe/lmod/modulefiles/craype-targets/default")
+    prepend_path("MODULEPATH", "/opt/cray/pe/lmod/modulefiles/core")
+end
 @MODULELOADS@
 @MODULEPREREQS@
 

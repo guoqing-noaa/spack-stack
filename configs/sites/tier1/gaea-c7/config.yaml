@@ -1,0 +1,7 @@
+config:
+  locks: false
+  build_jobs: 32
+  build_stage:
+    - /gpfs/f7/arfs-gsl/scratch/$user/spack-stage
+    - $tempdir/$user/spack-stage
+  source_cache: /gpfs/f7/arfs-gsl/world-shared/spack-stack/1.9.3/mirror

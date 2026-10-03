@@ -1,0 +1,47 @@
+compilers:
+- compiler:
+    spec: oneapi@2024.2.1
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    flags: {}
+    operating_system: rhel9
+    target: x86_64
+    modules:
+    - cpe/25.03
+    - PrgEnv-intel/8.6.0
+    - intel/2024.2
+    - craype/2.7.34
+    - cray-libsci/24.11.0
+    - libfabric/1.20.1
+    environment:
+      prepend_path:
+        LD_LIBRARY_PATH: '/opt/cray/pe/mpich/8.1.32/ofi/intel/2022.1/lib:/opt/cray/libfabric/1.20.1/lib64:/opt/cray/pe/libsci/24.11.0/INTEL/2023.2/x86_64/lib:/usr/lib/gcc/x86_64-redhat-linux/11:/opt/intel/oneapi/compiler/2024.2/lib'
+      set:
+        CONFIG_SITE: ''
+        AR: /usr/bin/llvm-ar
+        RANLIB: /usr/bin/llvm-ranlib
+        LD_PRELOAD: '/lib64/libm.so.6'
+    extra_rpaths:
+      - /opt/intel/oneapi/compiler/2024.2/lib
+- compiler:
+    spec: gcc@11.5.0
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    flags: {}
+    operating_system: rhel9
+    target: x86_64
+    modules:
+    - PrgEnv-gnu/8.6.0
+    - cpe/25.03
+    - libfabric/1.20.1
+    environment:
+      prepend_path:
+        LD_LIBRARY_PATH: '/opt/cray/pe/mpich/8.1.32/ofi/intel/2022.1/lib:/opt/cray/libfabric/1.20.1/lib64:/opt/cray/pe/libsci/24.11.0/INTEL/2023.2/x86_64/lib:/usr/lib/gcc/x86_64-redhat-linux/11:/opt/intel/oneapi/compiler/2024.2/lib'
+    extra_rpaths:
+      - /opt/intel/oneapi/compiler/2024.2/lib
